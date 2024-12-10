@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bate-Papo - Chat App</title>
+    <style>
+        /* Reset de margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+#chatBox {
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow-y: scroll;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+form {
+    width: 100%;
+    max-width: 500px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Labels e inputs */
+label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+select,
+input[type="text"] {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+select:focus,
+input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Estilo para o botão de envio */
+button {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para as mensagens no chat */
+.message {
+    background-color: #e1f5fe;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+.message.sent {
+    background-color: #e8f5e9;
+    align-self: flex-end;
+}
+
+.message.received {
+    background-color: #e1f5fe;
+}
+
+/* Estilo para o formulário de chat */
+#messageForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    #chatBox {
+        height: 250px;
+    }
+
+    form {
+        width: 100%;
+        padding: 15px;
+    }
+
+    #messageForm input[type="text"],
+    #messageForm select {
+        width: 100%;
+    }
+    
+    button {
+        width: 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <h1>Bate-Papo</h1>
+    <div id="chatBox">
+        <!-- Mensagens aparecerão aqui -->
+    </div>
+    <form id="messageForm">
+        <label for="userSelect">Usuário:</label>
+        <select id="userSelect" required></select>
+        <label for="message">Mensagem:</label>
+        <input type="text" id="message" required>
+        <button type="submit">Enviar</button>
+    </form>
+    <script src="js/chat.js"></script>
+</body>
+</html>
